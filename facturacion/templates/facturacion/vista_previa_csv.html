@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Vista Previa del CSV{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Vista Previa del CSV</h2>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Número de Factura</th>
+            <th>Nombre</th>
+            <th>Fecha de Emisión</th>
+            <th>Monto Total</th>
+            <th>Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in csv_data %}
+        <tr>
+            <td>{{ row['Número de Factura'] }}</td>
+            <td>{{ row['Nombre'] }}</td>
+            <td>{{ row['Fecha de Emisión'] }}</td>
+            <td>{{ row['Monto Total'] }}</td>
+            <td>{{ row['Descripción'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

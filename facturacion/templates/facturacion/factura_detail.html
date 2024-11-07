@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Detalle de Factura{% endblock %}
+
+{% block content %}
+<h2>Detalle de Factura</h2>
+<p><strong>Número de Factura:</strong> {{ factura.numero_factura }}</p>
+<p><strong>Proveedor:</strong> {{ factura.proveedor.nombre }}</p>
+<p><strong>Fecha de Emisión:</strong> {{ factura.fecha_emision }}</p>
+<p><strong>Monto Total:</strong> {{ factura.monto_total }}</p>
+<p><strong>Descripción:</strong> {{ factura.descripcion }}</p>
+<a href="{% url 'factura_list' %}" class="btn btn-secondary">Volver a la lista</a>
+{% endblock %}

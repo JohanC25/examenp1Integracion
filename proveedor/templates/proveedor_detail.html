@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Detalle del Proveedor{% endblock %}
+
+{% block content %}
+<h2>Detalle del Proveedor</h2>
+<div class="mb-3">
+    <p><strong>Nombre:</strong> {{ proveedor.nombre }}</p>
+    <p><strong>Contacto:</strong> {{ proveedor.contacto }}</p>
+    <p><strong>Email:</strong> {{ proveedor.email }}</p>
+    <p><strong>Teléfono:</strong> {{ proveedor.telefono }}</p>
+    <p><strong>Productos:</strong> {{ proveedor.productos }}</p>
+    <p><strong>Condiciones Comerciales:</strong> {{ proveedor.condiciones_comerciales }}</p>
+</div>
+<a href="{% url 'proveedor_update' proveedor.pk %}" class="btn btn-warning">Editar</a>
+<a href="{% url 'proveedor_delete' proveedor.pk %}" class="btn btn-danger">Eliminar</a>
+<a href="{% url 'proveedor_list' %}" class="btn btn-secondary">Volver a la lista</a>
+{% endblock %}

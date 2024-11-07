@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{% if form.instance.pk %}Editar{% else %}Agregar{% endif %} Factura{% endblock %}
+
+{% block content %}
+<h2>{% if form.instance.pk %}Editar{% else %}Agregar{% endif %} Factura</h2>
+<form method="post" class="mt-3">
+    {% csrf_token %}
+    <div class="mb-3">
+        {{ form.as_p }}
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>
+{% endblock %}

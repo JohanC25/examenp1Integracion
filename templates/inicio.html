@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Bienvenido al Sistema de Gestión</h1>
+<p class="text-center">Por favor, elige una de las siguientes aplicaciones:</p>
+<div class="list-group">
+    <a href="{% url 'proveedor_list' %}" class="list-group-item list-group-item-action">Gestión de Proveedores</a>
+    <a href="{% url 'facturacion_list' %}" class="list-group-item list-group-item-action">Gestión de Facturación</a>
+</div>
+{% endblock %}

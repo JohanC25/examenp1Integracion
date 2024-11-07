@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Facturas{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Lista de Facturas</h2>
+
+<div class="d-flex justify-content-between mb-3">
+    <a href="{% url 'factura_create' %}" class="btn btn-primary">Agregar Factura</a>
+    <a href="{% url 'vista_previa_csv' %}" class="btn btn-secondary">Vista Previa del CSV</a>
+</div>
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Número de Factura</th>
+            <th>Proveedor</th>
+            <th>Fecha de Emisión</th>
+            <th>Monto Total</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for factura in facturas %}
+        <tr>
+            <td>{{ factura.numero_factura }}</td>
+            <td>{{ factura.proveedor.nombre }}</td>
+            <td>{{ factura.fecha_emision }}</td>
+            <td>{{ factura.monto_total }}</td>
+            <td>
+                <a href="{% url 'factura_detail' factura.pk %}" class="btn btn-info btn-sm">Ver</a>
+                <a href="{% url 'factura_update' factura.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'factura_delete' factura.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
